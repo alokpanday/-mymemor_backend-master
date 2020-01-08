@@ -1,14 +1,16 @@
 package com.mymemor.mymemor.model;
-
-import javax.persistence.EntityListeners;
+ 
+ 
 import javax.persistence.MappedSuperclass;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
-public abstract class BondRequest {
+import lombok.Getter;
+import lombok.Setter;
+@MappedSuperclass 
+@SuppressWarnings("serial")
+public abstract class BondRequest extends Auditable {
 	
+	@Getter
+	@Setter
  private Bondrequest_status bondrequest_status ;
 	
 	

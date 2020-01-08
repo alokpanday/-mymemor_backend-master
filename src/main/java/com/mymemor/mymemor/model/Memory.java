@@ -1,21 +1,18 @@
 package com.mymemor.mymemor.model;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.data.annotation.CreatedDate;
-
-import lombok.Getter;
+ import lombok.Getter;
 import lombok.Setter;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="memory")
-public class Memory {
+public class Memory extends Auditable{
 	
 	@Getter
 	@Setter
@@ -33,21 +30,18 @@ public class Memory {
 	@Setter
 	private String picture;
 	
-	
-	
-	
-	@Column(nullable = false, updatable = false)
-    @CreatedDate
-    @Temporal(TemporalType.TIMESTAMP)
-	private Date created_at=new Date();
-	
-	@Getter
-	@Setter
+	 @Getter
+	 @Setter
 	private Date startdate;
 	
 	@Getter
 	@Setter
 	private Date enddate;
+	
+	@Getter
+	@Setter
+	@ManyToMany  
+	 private List<People>people;
 	
 	
 
