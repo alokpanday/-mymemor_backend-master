@@ -65,6 +65,6 @@ import lombok.Setter;
 	@Getter
 	@Setter
 	@ManyToMany 
-	private List<People>people;
+	private List<People>Mypeople;
 	 
 }
