@@ -2,6 +2,7 @@ package com.mymemor.mymemor.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -10,6 +11,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.URL;
+
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -44,27 +47,29 @@ import lombok.Setter;
 	
 	@Getter
 	@Setter
-	@OneToMany 
+	@OneToMany  (cascade = CascadeType.ALL)
 	private List<SendRequest> sendrequest;
 	
 	@Getter
 	@Setter
-	@OneToMany 
+	@OneToMany  (cascade = CascadeType.ALL)
 	private List<RecieveRequest> recieverequest;
 	
 	@Getter
 	@Setter
-	@OneToOne
+	@OneToOne (cascade = CascadeType.ALL)
 	private Account account;
 	
 	@Getter
 	@Setter
 	@ManyToMany(mappedBy="people")
+	@JsonIdentityReference
 	 private List<Memory>memory;
 	
 	@Getter
 	@Setter
 	@ManyToMany 
+	@JsonIdentityReference
 	private List<People>Mypeople;
 	 
 }

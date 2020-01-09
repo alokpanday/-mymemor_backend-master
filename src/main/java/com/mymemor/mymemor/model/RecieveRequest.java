@@ -1,10 +1,10 @@
 package com.mymemor.mymemor.model;
 
 import javax.persistence.Entity;
- 
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
  
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,9 +15,10 @@ import lombok.Setter;
 @Table(name="recieverequest")
 public class RecieveRequest extends BondRequest{
 	
-	@Getter
-	@Setter
-	@NotBlank
+	 @ManyToOne
+    @Getter
+    @Setter
+    @NotNull
 	private People from;
 	 
 
